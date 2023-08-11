@@ -20,7 +20,7 @@ const Usefetch = (url) => {
             setLoading(false);
         };
         fetchData()
-    }, [])
+    }, [url])
 
 
 const reFetch = async ()=>{
