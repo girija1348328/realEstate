@@ -2,7 +2,7 @@ import "./list.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 // import { useLocation } from "react-router-dom";
-import { useState} from "react";
+import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
@@ -135,23 +135,17 @@ const List = () => {
             {loading ? (
               "loading"
             ) : (
-              <>
-                {data.map((item) => (
+              Array.isArray(data) ? (
+                data.map((item) => (
                   <SearchItem item={item} key={item._id} />
-                ))}
-              </>
+                ))
+              ) : (
+                "No data to display"
+              )
             )}
           </div>
 
-          {/* <div className="listResult">
-            {loading ? (
-              "loading"
-            ) : data && Array.isArray(data) ? (
-              data.map((item) => <SearchItem item={item} key={item._id} />)
-            ) : (
-              "No data to display"
-            )}
-          </div> */}
+
         </div>
       </div>
     </div>
