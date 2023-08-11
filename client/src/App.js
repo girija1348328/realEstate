@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import List from "./pages/list/List";
-import Login from "./pages/login/login"
+// import Login from "./pages/login/login"
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         {/* <Route path="/" element={<Home/>}/> */}
         <Route path="/" element={<List/>}/>
         {/* <Route path="/hotels/:id" element={<Hotel/>}/> */}
-        <Route path="/login" element={<Login/>}/>
+        {/* <Route path="/login" element={<Login/>}/> */}
 
 
       </Routes>
