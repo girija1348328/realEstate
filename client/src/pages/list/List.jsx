@@ -20,12 +20,22 @@ const List = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const { data, loading, error, reFetch } = useFetch(
-    `/property${destination || propertyType || min || max ?
-      `?city=${destination}&type=${propertyType}&min=${min || 0}&max=${max || 999}`
-      : ""
-    }`
-  );
+  const queryParameters = [];
+if (destination) queryParameters.push(`city=${encodeURIComponent(destination)}`);
+if (propertyType) queryParameters.push(`type=${encodeURIComponent(propertyType)}`);
+if (min !== undefined) queryParameters.push(`min=${min}`);
+if (max !== undefined) queryParameters.push(`max=${max}`);
+
+const queryString = queryParameters.length > 0 ? `?${queryParameters.join('&')}` : '';
+
+const { data, loading, error, reFetch } = useFetch(`/property${queryString}`);
+
+  // const { data, loading, error, reFetch } = useFetch(
+  //   `/property${destination || propertyType || min || max ?
+  //     `?city=${destination}&type=${propertyType}&min=${min || 0}&max=${max || 999}`
+  //     : ""
+  //   }`
+  // );
   if (error) {
     console.error("Error fetching data:", error);
     return <div>Error fetching data</div>; // Display an error message to the user
