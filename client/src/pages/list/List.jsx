@@ -31,6 +31,8 @@ const List = () => {
     return <div>Error fetching data</div>; // Display an error message to the user
   }
 
+  console.log(data)
+
   // useEffect(() => {
   //   // This will trigger the API call when the component mounts
   //   reFetch();
