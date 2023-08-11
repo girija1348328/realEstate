@@ -1,7 +1,5 @@
 const express =require("express") 
 const dotenv =require("dotenv");
-const usersRoute = require("./routes/users.js");
-const authRoute = require("./routes/auth.js");
 const propertyRoute = require("./routes/property.js");
 
 const mongoose = require('mongoose')
@@ -35,8 +33,6 @@ app.use(cors())
 app.use(cookieParser())
 app.use(express.json());
 
-app.use("/api/auth", authRoute);
-app.use("/api/users", usersRoute);
 app.use("/api/property", propertyRoute);
 
 app.use((err, req, res, next) => {
