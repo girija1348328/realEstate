@@ -131,7 +131,7 @@ const List = () => {
             </div>
             <button onClick={handleClick}>Search</button>
           </div>
-          {/* <div className="listResult">
+          <div className="listResult">
             {loading ? (
               "loading"
             ) : (
@@ -141,9 +141,9 @@ const List = () => {
                 ))}
               </>
             )}
-          </div> */}
+          </div>
 
-          <div className="listResult">
+          {/* <div className="listResult">
             {loading ? (
               "loading"
             ) : data && Array.isArray(data) ? (
@@ -151,7 +151,7 @@ const List = () => {
             ) : (
               "No data to display"
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
