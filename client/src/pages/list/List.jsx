@@ -2,7 +2,7 @@ import "./list.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 // import { useLocation } from "react-router-dom";
-import { useState,useEffect} from "react";
+import { useState} from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
@@ -15,14 +15,13 @@ const List = () => {
   const [destination, setDestination] = useState(undefined);
   const [dates, setDates] = useState(undefined);
   const [openDate, setOpenDate] = useState(false);
-  const [propertyType , setPropertyType] = useState(undefined)
+  const [propertyType, setPropertyType] = useState(undefined)
   // const [options, setOptions] = useState(undefined);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
   const { data, loading, error, reFetch } = useFetch(
-    `/property${
-      destination || propertyType || min || max ? 
+    `/property${destination || propertyType || min || max ?
       `?city=${destination}&type=${propertyType}&min=${min || 0}&max=${max || 999}`
       : ""
     }`
@@ -51,7 +50,7 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Location</label>
-              <input value = {destination || ""} onChange={(e)=>setDestination(e.target.value)} type="text" />
+              <input value={destination || ""} onChange={(e) => setDestination(e.target.value)} type="text" />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
@@ -72,7 +71,7 @@ const List = () => {
 
             <div className="lsItem">
               <label>Property Type</label>
-              <input value = {propertyType || ""} onChange={(e)=>setPropertyType(e.target.value)} type="text" />
+              <input value={propertyType || ""} onChange={(e) => setPropertyType(e.target.value)} type="text" />
             </div>
 
             <div className="lsItem">
@@ -130,7 +129,7 @@ const List = () => {
             </div>
             <button onClick={handleClick}>Search</button>
           </div>
-          <div className="listResult">
+          {/* <div className="listResult">
             {loading ? (
               "loading"
             ) : (
@@ -139,6 +138,16 @@ const List = () => {
                   <SearchItem item={item} key={item._id} />
                 ))}
               </>
+            )}
+          </div> */}
+
+          <div className="listResult">
+            {loading ? (
+              "loading"
+            ) : data && Array.isArray(data) ? (
+              data.map((item) => <SearchItem item={item} key={item._id} />)
+            ) : (
+              "No data to display"
             )}
           </div>
         </div>
