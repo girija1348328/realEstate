@@ -30,7 +30,7 @@ mongoose.connection.on("connected",()=>{
 })
 //middlewares
 app.use(cors({
-  origin:"https://realstateappg.onrender.com",
+  origin:"https://real-estate-backend-six.vercel.app",
   methods : ["GET","POST","PUT","DELETE"]
 }))
 app.use(cookieParser())
