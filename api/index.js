@@ -29,7 +29,10 @@ mongoose.connection.on("connected",()=>{
     console.log("Mongodb connection connected");
 })
 //middlewares
-app.use(cors())
+app.use(cors({
+  origin:"https://realstateappg.onrender.com",
+  methods : ["GET","POST","PUT","DELETE"]
+}))
 app.use(cookieParser())
 app.use(express.json());
 
