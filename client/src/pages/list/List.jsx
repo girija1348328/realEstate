@@ -1,7 +1,6 @@
 import "./list.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
-// import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
@@ -9,26 +8,13 @@ import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
 
 const List = () => {
-  // const location = useLocation();
-
-
   const [destination, setDestination] = useState(undefined);
   const [dates, setDates] = useState(undefined);
   const [openDate, setOpenDate] = useState(false);
   const [propertyType, setPropertyType] = useState(undefined)
-  // const [options, setOptions] = useState(undefined);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-//   const queryParameters = [];
-// if (destination) queryParameters.push(`city=${encodeURIComponent(destination)}`);
-// if (propertyType) queryParameters.push(`type=${encodeURIComponent(propertyType)}`);
-// if (min !== undefined) queryParameters.push(`min=${min}`);
-// if (max !== undefined) queryParameters.push(`max=${max}`);
-
-// const queryString = queryParameters.length > 0 ? `?${queryParameters.join('&')}` : '';
-
-// const { data, loading, error, reFetch } = useFetch(`/property${queryString}`);
 
   const { data, loading, error, reFetch } = useFetch(
     `/property${destination || propertyType || min || max ?
@@ -42,12 +28,6 @@ const List = () => {
   }
 
   console.log(data)
-
-  // useEffect(() => {
-  //   // This will trigger the API call when the component mounts
-  //   reFetch();
-  // }, []);
-
   const handleClick = () => {
     reFetch();
   };
@@ -109,35 +89,7 @@ const List = () => {
                     className="lsOptionInput"
                   />
                 </div>
-                {/* <div className="lsOptionItem">
-                  <span className="lsOptionText">Adult</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.adult}
-                  />
-                </div> */}
-                {/* <div className="lsOptionItem">
-                  <span className="lsOptionText">Children</span>
-                  <input
-                    type="number"
-                    min={0}
-                    className="lsOptionInput"
-                    placeholder={options.children}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Room</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.room}
-                  />
-                </div> */}
               </div>
-
             </div>
             <button onClick={handleClick}>Search</button>
           </div>
@@ -158,7 +110,7 @@ const List = () => {
 
         </div>
       </div>
-    </div>
+   </div>
   );
 };
 

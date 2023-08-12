@@ -18,6 +18,10 @@
   font-weight: 500;
 }
 
+.headerDesc {
+  margin: 20px 0px;
+}
+
 .navButton{
   margin-left: 20px;
   border: none;

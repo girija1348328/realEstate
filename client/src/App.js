@@ -5,19 +5,12 @@ import {
 } from "react-router-dom";
 
 import List from "./pages/list/List";
-// import Login from "./pages/login/login"
-
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Home/>}/> */}
         <Route path="/" element={<List/>}/>
-        {/* <Route path="/hotels/:id" element={<Hotel/>}/> */}
-        {/* <Route path="/login" element={<Login/>}/> */}
-
-
       </Routes>
     </BrowserRouter>
   );
